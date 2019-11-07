@@ -147,10 +147,19 @@ public class TextRecognitionHelper {
 	}
 
 	public void checkMRZ(String txt){
-		final String mrzText = preProcessText(txt);
+//		final String mrzText = preProcessText(txt);
+//		final String mrzText = "I<UTOD231458907<<<<<<<<<<<<<<<\n" +
+//				"7408122F1204159UTO<<<<<<<<<<<6\n" +
+//				"ERIKSSON<<ANNA<MARIA<<<<<<<<";
+//		final String mrzText = "P<GBRSMITH<<RAOUL<<<<<<<<<<<<<<<<<<<<<<<<<<<\n" + // its running
+//				"8075940560GBR6903262M1601013<<<<<<<<<<<<<<06";
+
+		final String mrzText = "IDARE1902402303784196865703050\n" +
+				"6807278M1803053ARE<<<<<<<<<<<9\n" +
+				"abdulla<<Ahmed<Mohamed<<<<<<<<";
 
 		if(mrzText != null) {
-			Log.i("Found possible MRZ", mrzText);
+			Log.e("Found possible MRZ", mrzText);
 			try {
 				MrzRecord mrzRecord = MrzParser.parse(mrzText);
 				if(mrzRecord != null) {
@@ -174,7 +183,7 @@ public class TextRecognitionHelper {
 					}
 				}
 			} catch (Exception e){
-				Log.i("MRZ Parser", "Failed");
+				Log.e("MRZ Parser", "Failed");
 			}
 		}
 	}
